@@ -1,0 +1,65 @@
+:root{
+  --bg:#ffffff; --panel:#e9ecf1; --card:#f6f7f9; --text:#1c2230; --muted:#5d6678; --accent:#2f6fed; --accent-text:#fff; --line:#d9dde5;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#12151c;--panel:#1b2030;--card:#1f2536;--text:#e8ebf2;--muted:#9aa3b5;--accent:#6c9bff;--accent-text:#0b1020;--line:#2a3147}
+}
+:root[data-theme="dark"]{--bg:#12151c;--panel:#1b2030;--card:#1f2536;--text:#e8ebf2;--muted:#9aa3b5;--accent:#6c9bff;--accent-text:#0b1020;--line:#2a3147}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;width:100%;overflow-x:hidden}
+p{color:var(--muted)}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;margin-bottom:14px}
+h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:28px}
+.pad{padding:clamp(40px,7vw,88px) clamp(20px,6vw,96px)}
+.btn{display:inline-block;padding:12px 24px;border-radius:8px;border:1px solid transparent;background:var(--accent);color:var(--accent-text);font-size:1rem;font-weight:600;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;color:var(--text);border-color:var(--line)}
+.split{display:grid;grid-template-columns:1fr 1fr}
+.panel{background:var(--panel);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(24px,5vw,64px)}
+
+/* Navbar */
+header{position:sticky;top:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--line)}
+
+/* Hero: panel abu-abu penuh sampai tepi kanan */
+#hero{min-height:100vh;min-height:100svh}
+#hero .left{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.avatar{width:clamp(110px,14vw,160px);aspect-ratio:1;border-radius:50%;background:var(--accent);color:var(--accent-text);display:grid;place-items:center;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700;margin-bottom:20px}
+.avatar{position:relative;overflow:hidden}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.panel h3{font-size:1.4rem;margin-bottom:4px}
+
+/* Skills */
+#skills{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,5vw,72px);align-items:center}
+.skill-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.skill-list button{width:100%;display:flex;align-items:center;gap:16px;padding:12px 14px;background:none;border:1px solid transparent;border-radius:12px;color:var(--text);font-size:1.05rem;text-align:left;cursor:pointer}
+.skill-list button:hover,.skill-list button.active{background:var(--card);border-color:var(--line)}
+.ico{width:44px;height:44px;border-radius:10px;background:var(--panel);display:grid;place-items:center;flex:none}
+.ico svg{width:28px;height:28px}
+#skillBox{border-radius:16px;min-height:300px}
+#skillLogo svg{width:clamp(72px,10vw,110px);height:auto;margin-bottom:16px}
+
+/* Project */
+#project{text-align:center}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.5vw,32px);margin-bottom:40px;text-align:left}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.thumb{height:clamp(120px,16vw,200px);background:var(--panel);display:grid;place-items:center;font-size:2.4rem}
+.card .body{padding:16px 18px}
+.card h3{font-size:1.1rem;margin-bottom:4px}
+
+/* Footer */
+footer{text-align:center}
+footer .top{padding:clamp(36px,6vw,64px) 20px 28px}
+footer .top h2{margin:0 0 8px}
+.contact{background:var(--panel);padding:clamp(28px,5vw,56px) clamp(20px,6vw,96px);display:flex;flex-direction:column;align-items:center;gap:16px}
+.contact input{width:100%;max-width:720px;padding:14px 16px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:1rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+#msg{min-height:1.4em;font-size:.95rem;color:var(--accent)}
+.contact small{color:var(--muted)}
+
+@media (max-width:760px){
+  .split,#skills,.cards{grid-template-columns:1fr}
+  #hero{min-height:0}
+  #hero .left{order:2}
+  #hero .panel{order:1;padding-top:48px;padding-bottom:40px}
+}
