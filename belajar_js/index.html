@@ -6,6 +6,12 @@
     <title>Level 2 belajar JS</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+body.dark-mode {
+    background: #1b2a4a;
+    color: #fff;
+}
+</style>
 <h1 id="judul">Judul Halaman</h1>
 <body >
     <p> jumlah input : <span id="hitung">0</span></p>
@@ -13,7 +19,32 @@
     <button id="tombol2">klik untuk menghitung</button> <br>
     <button id="tombol3">klik untuk mengaktifkan mode gelap</button> <br>
 
-<script src="script.js"></script>
+<script>
+//  level 1 pengubah judul 
+const judul = document.getElementById('judul');
+const tombol = document.getElementById('tombol1');
+
+tombol.addEventListener('click', function() {
+    judul.textContent = 'Judul Berhasil Diubah!';
+});
+
+// level 2
+const hitung = document.getElementById("hitung");
+const tombol2 = document.getElementById("tombol2");
+let jumlah = 0;
+
+tombol2.addEventListener("click", () => {
+  jumlah = jumlah + 1; 
+  hitung.textContent = jumlah;
+});
+
+// level 3
+const tombol3 = document.getElementById("tombol3");
+tombol3.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+});
+    
+</script>
 
     
 </body>

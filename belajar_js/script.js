@@ -1,3 +1,4 @@
+//  level 1 pengubah judul 
 const judul = document.getElementById('judul');
 const tombol = document.getElementById('tombol1');
 
@@ -5,6 +6,7 @@ tombol.addEventListener('click', function() {
     judul.textContent = 'Judul Berhasil Diubah!';
 });
 
+// level 2
 const hitung = document.getElementById("hitung");
 const tombol2 = document.getElementById("tombol2");
 let jumlah = 0;
